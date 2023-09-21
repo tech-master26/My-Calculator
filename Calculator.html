@@ -78,33 +78,33 @@ animation: fadeIn 1s;
 	<td><button onclick="clearDisplay(); playSound('sound.ogg')">C</button></td>
 	</tr>
 	<tr>
-	<td><button onclick="appendToDisplay('7'); playSound('sound.ogg')">7</button></td>
-	<td><button onclick="appendToDisplay('8'); playSound('sound.ogg')">8</button></td>
-	<td><button onclick="appendToDisplay('9'); playSound('sound.ogg')">9</button></td>
-	<td><button onclick="appendToDisplay('+'); playSound('sound.ogg')">+</button></td>
+	<td><button onclick="appendToDisplay('7'); playSound('keySound.ogg')">7</button></td>
+	<td><button onclick="appendToDisplay('8'); playSound('keySound.ogg')">8</button></td>
+	<td><button onclick="appendToDisplay('9'); playSound('keySound.ogg')">9</button></td>
+	<td><button onclick="appendToDisplay('+'); playSound('keySound.ogg')">+</button></td>
 	</tr>
 	<tr>
-	<td><button onclick="appendToDisplay('4'); playSound('sound.ogg')">4</button></td>
-	<td><button onclick="appendToDisplay('5'); playSound('sound.ogg')">5</button></td>
-	<td><button onclick="appendToDisplay('6'); playSound('sound.ogg')">6</button></td>
-	<td><button onclick="appendToDisplay('-'); playSound('sound.ogg')">-</button></td>
+	<td><button onclick="appendToDisplay('4'); playSound('keySound.ogg')">4</button></td>
+	<td><button onclick="appendToDisplay('5'); playSound('keySound.ogg')">5</button></td>
+	<td><button onclick="appendToDisplay('6'); playSound('keySound.ogg')">6</button></td>
+	<td><button onclick="appendToDisplay('-'); playSound('keySound.ogg')">-</button></td>
 	</tr>
 	<tr>
-	<td><button onclick="appendToDisplay('1'); playSound('sound.ogg')">1</button></td>
-	<td><button onclick="appendToDisplay('2'); playSound('sound.ogg')">2</button></td>
-	<td><button onclick="appendToDisplay('3'); playSound('sound.ogg')">3</button></td>
-	<td><button onclick="appendToDisplay('×'); playSound('sound.ogg')">×</button></td>
+	<td><button onclick="appendToDisplay('1'); playSound('keySound.ogg')">1</button></td>
+	<td><button onclick="appendToDisplay('2'); playSound('keySound.ogg')">2</button></td>
+	<td><button onclick="appendToDisplay('3'); playSound('keySound.ogg')">3</button></td>
+	<td><button onclick="appendToDisplay('×'); playSound('keySound.ogg')">×</button></td>
 	</tr>
 	<tr>
-	<td><button onclick="appendToDisplay('0'); playSound('sound.ogg')">0</button></td>
-	<td><button onclick="appendToDisplay('.'); playSound('sound.ogg')">.</button></td>
-	<td><button onclick="calculate(); playSound('sound.ogg')">=</button></td>
-	<td><button onclick="appendToDisplay('÷'); playSound('sound.ogg')">÷</button></td>
+	<td><button onclick="appendToDisplay('0'); playSound('keySound.ogg')">0</button></td>
+	<td><button onclick="appendToDisplay('.'); playSound('keySound.ogg')">.</button></td>
+	<td><button onclick="calculate(); playSound('keySound.ogg')">=</button></td>
+	<td><button onclick="appendToDisplay('÷'); playSound('keySound.ogg')">÷</button></td>
 	</tr>
 	
 	</table>
 	</div>
-	<audio id="audio" src="sound.ogg"></audio>
+	<audio id="audio" src="keySound.ogg"></audio>
 	<script>
 	// Initialize the display value
 	let displayValue = "0";
