@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+<link rel="png" href="icon.png" type="x-icon">
+
+<style>
+/* Center the calculator on the screen */
+body {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+margin: 0;
+background-color: grey;
+}
+
+/* Calculator styling */
+.calculator {
+max-width: 350px;
+height: 520px;
+padding: 10px;
+background-color: white;
+border-radius: 15px;
+box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+text-align: 0 auto;
+}
+
+/* Display input styling */
+input[type="text"] {
+animation: fadeIn 0.5s ease-in-out;
+justify-content: center;
+text-align: right;
+width: 300px;
+padding: 20px;
+margin-bottom: 20px;
+font-size: 30px;
+font-color: ;
+border: none;
+border-radius: 15px;
+box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+@keyframes fadeIn {
+0% {
+opacity: 0;
+transform: translateY(-20px);
+}
+100% {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* Circular button styling with shadow */
+button {
+width: 70px;
+height: 70px;
+font-size: 36px;
+margin: 5px;
+border-radius: 40%;
+border: none;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+cursor: pointer;
+background-color: #f4f6f8;
+animation: fadeIn 1s;
+}
+
+	</style>
+	
+	</head>
+	<body>
+	<div class="calculator">
+	<input type="text" id="display" value="0" readonly>
+	<table>
+	<tr>
+	<td><button onclick="clearDisplay(); playSound('sound.ogg')">C</button></td>
+	</tr>
+	<tr>
+	<td><button onclick="appendToDisplay('7'); playSound('sound.ogg')">7</button></td>
+	<td><button onclick="appendToDisplay('8'); playSound('sound.ogg')">8</button></td>
+	<td><button onclick="appendToDisplay('9'); playSound('sound.ogg')">9</button></td>
+	<td><button onclick="appendToDisplay('+'); playSound('sound.ogg')">+</button></td>
+	</tr>
+	<tr>
+	<td><button onclick="appendToDisplay('4'); playSound('sound.ogg')">4</button></td>
+	<td><button onclick="appendToDisplay('5'); playSound('sound.ogg')">5</button></td>
+	<td><button onclick="appendToDisplay('6'); playSound('sound.ogg')">6</button></td>
+	<td><button onclick="appendToDisplay('-'); playSound('sound.ogg')">-</button></td>
+	</tr>
+	<tr>
+	<td><button onclick="appendToDisplay('1'); playSound('sound.ogg')">1</button></td>
+	<td><button onclick="appendToDisplay('2'); playSound('sound.ogg')">2</button></td>
+	<td><button onclick="appendToDisplay('3'); playSound('sound.ogg')">3</button></td>
+	<td><button onclick="appendToDisplay('×'); playSound('sound.ogg')">×</button></td>
+	</tr>
+	<tr>
+	<td><button onclick="appendToDisplay('0'); playSound('sound.ogg')">0</button></td>
+	<td><button onclick="appendToDisplay('.'); playSound('sound.ogg')">.</button></td>
+	<td><button onclick="calculate(); playSound('sound.ogg')">=</button></td>
+	<td><button onclick="appendToDisplay('÷'); playSound('sound.ogg')">÷</button></td>
+	</tr>
+	
+	</table>
+	</div>
+	<audio id="audio" src="sound.ogg"></audio>
+	<script>
+	// Initialize the display value
+	let displayValue = "0";
+	
+	// Function to update and display values
+	function updateDisplay() {
+	document.getElementById('display').value = displayValue;
+	}
+	
+	function appendToDisplay(value) {
+	// Clear "0" when a number or operator is pressed
+	if (displayValue === "0") {
+	displayValue = value;
+	} else {
+	displayValue += value;
+	}
+	updateDisplay();
+	}
+	
+	function clearDisplay() {
+	// Clear the display and set it to "0"
+	displayValue = "0";
+	updateDisplay();
+	}
+	
+	function calculate() {
+	try {
+	displayValue = eval(displayValue).toString();
+	updateDisplay();
+	} catch (error) {
+	displayValue = 'Error';
+	updateDisplay();
+	}
+	}
+	function calculate() {
+	try {
+	// Replace "÷" with "/" and "×" with "*" before evaluation
+	const expression = displayValue.replace(/÷/g, '/').replace(/×/g, '*');
+	displayValue = eval(expression).toString();
+	updateDisplay();
+	} catch (error) {
+	displayValue = 'Error';
+	updateDisplay();
+	}
+	}
+	
+	function playSound(soundFile) {
+	const audio = document.getElementById('audio');
+	audio.src = soundFile;
+	audio.play();
+	}
+	</script>
+	</body>
+	</html>
+	
